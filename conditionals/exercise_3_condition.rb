@@ -12,9 +12,9 @@ print "What is the amount of the security deposit? "
 security_deposit = gets.chomp.to_i
 
 if security_deposit < 50000
-  puts "You should pay: #{(security_deposit * 0.3) + security_deposit}"
+  puts "You should pay: #{(security_deposit * 0.03) + security_deposit}"
 else
-  puts "You should pay: #{(security_deposit * 0.2) + security_deposit}"
+  puts "You should pay: #{(security_deposit * 0.02) + security_deposit}"
 end
 
 puts "Thanks for your payment"
