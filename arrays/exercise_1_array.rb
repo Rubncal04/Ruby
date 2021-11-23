@@ -10,7 +10,6 @@ print "Tell me one number: "
 highest_num = gets.chomp.to_i
 
 array_all = [highest_num]
-# array_all[0] = highest_num
 smallest_num = highest_num
 
 (1..6).each do |num|
