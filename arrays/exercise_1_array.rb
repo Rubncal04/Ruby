@@ -29,3 +29,5 @@ end
 puts "This is the array: #{array_all}"
 puts "The highest number is: #{highest_num}"
 puts "The smallest number is: #{smallest_num}"
+puts "The sum of all numbers is: #{array_all.reduce(:+)}"
+puts "The product of all numbers is: #{array_all.reduce(:*)}"
