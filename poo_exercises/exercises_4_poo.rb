@@ -60,4 +60,4 @@ user2 = Password.new(pass_user)
 user.is_user(user2)
 
 user.change_pass
-user.show_pass
+# user.show_pass
