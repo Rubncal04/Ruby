@@ -11,57 +11,56 @@
 # haya saldo.
 # d. Mostrar: método que permita mostrar todos los datos de la cuenta
 class Account
-  attr_accessor :name, :id, :balance, :annual_interest, :daily_interest
+  attr_accessor :name, :id, :balance
+  ANNUAL_INTEREST = 31.2
+  DAILY_INTEREST = (ANNUAL_INTEREST / 365).to_f.round(2)
 
   def initialize(name, id, balance)
     @name = name
     @id = id
     @balance = balance
-    @annual_interest = 35
-    @daily_interest = 365 / @annual_interest
   end
 
   def update_balance
-    @balance += @daily_interest
+    @balance += DAILY_INTEREST
   end
 
-  def save_money(balance)
+  def deposit(balance)
     @balance = update_balance + balance
   end
 
   def withdraw(withdraw)
-    @balance -= withdraw
+    if withdraw > @balance
+      @balance = 0
+    else
+      @balance -= withdraw
+    end
   end
 
   def show
-    puts "Name: #{@name.capitalize}\nID: #{@id}\nAnnual interest: #{@annual_interest}
+    puts "Name: #{@name.capitalize}\nID: #{@id}\nAnnual interest: #{ANNUAL_INTEREST}
 Your balance: #{@balance}"
   end
 end
 
-def name
-  print 'Enter your name: '
-  gets.chomp
-end
+print 'Enter your name: '
+name = gets.chomp
 
-def id
-  print 'Enter your id: '
-  gets.chomp.to_i
-end
+print 'Enter your id: '
+id = gets.chomp.to_i
 
-def balance
-  print 'Save your money: '
-  gets.chomp.to_i
-end
+print 'Initial balance: '
+balance = gets.chomp.to_i
 
-def withdraw
-  print 'Withdraw: '
-  gets.chomp.to_i
-end
+print 'Save money: '
+save_money = gets.chomp.to_i
+
+print 'Withdraw: '
+withdraw = gets.chomp.to_i
 
 user = Account.new(name, id, balance)
 
 user.update_balance
-# user.save_money(balance)
+# user.save_money(save_money)
 user.withdraw(withdraw)
 user.show
