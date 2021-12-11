@@ -31,7 +31,7 @@ class Account
 
   def withdraw(withdraw)
     if withdraw > @balance
-      raise "You don't have enough money"
+      raise "Insufficient Money"
     else
       @balance -= withdraw
     end
