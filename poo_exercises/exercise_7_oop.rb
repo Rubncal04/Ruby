@@ -18,38 +18,35 @@ class Hour
     @seconds = seconds
   end
 
-  def is_same(hour, minutes, seconds)
-    hour == @hours and minutes == @minutes and seconds == @seconds
+  def is_same?(hour, minutes, seconds)
+    hour == @hours && minutes == @minutes && seconds == @seconds
   end
 
-  def is_minor(hour)
-    return (if hour < @hours then true end)
+  def is_before?(hour, minutes, seconds)
+    hour <= @hours && minutes <= @minutes && seconds < @seconds
   end
 
-  def is_major(hour)
-    return (if hour > @hours then true end)
+  def is_after?(hour)
+    hour >= @hours && minutes >= @minutes && seconds > @seconds
   end
 
   def show
-    return "%02d:%02d:%02d" % ["#{@hours}", "#{@minutes}","#{@seconds}"]
+    "%02d:%02d:%02d" % ["#{@hours}", "#{@minutes}","#{@seconds}"]
   end
 
-  def is_valid_hour
-    return @hours <= 24
+  def is_valid_hour?
+    @hours <= 24 && @hours >= 1
   end
 
-  def is_valid_minutes
-    return (if @minutes <= 60
+  def is_valid_minutes?
+    @minutes <= 60 && @minutes >= 0
   end
 
-  def is_valid_seconds
-    return (if @seconds <= 60 then true end)
+  def is_valid_seconds?
+    @seconds <= 60 && @seconds >= 0
   end
 
   def is_valid?
-    return (if is_valid_hour and is_valid_minutes and is_valid_seconds then true end)
+    is_valid_hour? and is_valid_minutes? and is_valid_seconds?
   end
 end
-
-date_1 = Hour.new(10, 10, 35)
-puts date_1.is_valid_hour
