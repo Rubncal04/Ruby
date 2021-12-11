@@ -17,35 +17,30 @@
 # e. Vaciar la cafetera: pone la cantidad de café actual en cero.
 # f. Agregar Café: añade a la cafetera la cantidad de café indicada.
 class CoffeeMachine
-  attr_accessor :capacity_max, :capacity_current
+  attr_accessor :max_capacity, :current_capacity
 
-  def initialize(capacity_max=1000, capacity_current=0)
-    @capacity_max = capacity_max
-    @capacity_current = capacity_current
+  def initialize(max_capacity=1000, current_capacity=0)
+    @max_capacity = max_capacity
+    @current_capacity = current_capacity
   end
 
   def fill_maker
-    @capacity_current = @capacity_max
+    @current_capacity = @max_capacity
   end
 
   def serve_coffee(capacity_cup)
-    if capacity_cup > @capacity_current
-      @capacity_current = 0
+    if capacity_cup > @current_capacity
+      @current_capacity = 0
     else
-      @capacity_current -= capacity_cup
+      @current_capacity -= capacity_cup
     end
   end
 
   def maker_empty
-    @capacity_current = 0
+    @current_capacity = 0
   end
 
   def add_coffee(quantity)
-    @capacity_current += quantity
+    @current_capacity += quantity
   end
 end
-
-cup = CoffeeMachine.new
-puts cup.serve_coffee(2000)
-# puts cup.maker_empty
-puts cup.add_coffee(500)
