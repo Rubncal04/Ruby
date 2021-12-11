@@ -19,11 +19,7 @@ class Hour
   end
 
   def is_same(hour, minutes, seconds)
-    if hour == @hours and minutes == @minutes and seconds == @seconds
-      return true
-    else
-      return false
-    end
+    hour == @hours and minutes == @minutes and seconds == @seconds
   end
 
   def is_minor(hour)
@@ -39,11 +35,11 @@ class Hour
   end
 
   def is_valid_hour
-    return (if @hours <= 24 then true end)
+    return @hours <= 24
   end
 
   def is_valid_minutes
-    return (if @minutes <= 60 then true end)
+    return (if @minutes <= 60
   end
 
   def is_valid_seconds
@@ -55,6 +51,5 @@ class Hour
   end
 end
 
-
 date_1 = Hour.new(10, 10, 35)
-puts date_1.is_valid?
+puts date_1.is_valid_hour
