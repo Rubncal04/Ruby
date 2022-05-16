@@ -6,14 +6,14 @@ c. El Mayor Elemento
 d. El menor Elemento
 =end
 
-print "Tell me one number: "
+print "Type a  number: "
 highest_num = gets.chomp.to_i
 
 array_all = [highest_num]
 smallest_num = highest_num
 
 (1..6).each do |num|
-  print "Tell other number: "
+  print "Type another number: "
   number = gets.chomp.to_i
   array_all << number
 
